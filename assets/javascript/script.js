@@ -1,13 +1,12 @@
 var submit = document.querySelector("#submitButton");
 
 submit.addEventListener("click", getWeatherInfo);
-var cityInput = document.querySelector("#cityInput");
-var cityName = document.querySelector("#cityName");
 
-cityName.innerHTML = " ";
+//cityName.innerHTML = " ";
 
 function getWeatherInfo() {
-  cityName.innerHTML = cityInput;
+  var cityInput = document.querySelector("#cityInput");
+  var cityName = document.querySelector("#cityName");
   fetch(
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
       cityInput.value +
@@ -16,18 +15,17 @@ function getWeatherInfo() {
     .then((response) => response.json())
     .then((data) => {
       for (i = 0; i < 5; i++) {
-        document.querySelector("#day" + (i + 1) + "Min").innerHTML =
-          "Min: " +
-          Number(data.list[i].main.temp_min * 1.8 - 460).toFixed(1) +
-          "°";
-      }
-      for (i = 0; i < 5; i++) {
-        document.querySelector("#day" + (i + 1) + "Max").innerHTML =
-          "Max: " +
-          Number(data.list[i].main.temp_max * 1.8 - 460).toFixed(1) +
-          "°";
-      }
-      for (i = 0; i < 5; i++) {
+        document.querySelector("#day" + (i + 1) + "Temp").innerHTML =
+          "Temp: " +
+          Number(data.list[i].main.temp * 1.8 - 460).toFixed(1) +
+          "°F";
+        document.querySelector("#day" + (i + 1) + "Wind").innerHTML =
+          "Wind: " + Number(data.list[i].wind.speed).toFixed(1) + " MPH";
+
+        document.querySelector("#day" + (i + 1) + "Humidity").innerHTML =
+          "Humidity: " +
+          Number(data.list[i].main.humidity).toFixed(1) +
+          " Percent";
         document.querySelector("#image" + (i + 1)).src =
           " http://openweathermap.org/img/wn/" +
           data.list[i].weather[0].icon +
@@ -62,6 +60,6 @@ for (i = 0; i < 5; i++) {
   document.querySelector("#day" + (i + 1)).innerHTML = weekdays[checkDay(i)];
 }
 
-// function defaultCity() {
-//   cityInput = "dallas";
-// }
+function defaultCity() {
+  cityInput = "dallas";
+}

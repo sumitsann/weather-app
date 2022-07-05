@@ -5,88 +5,109 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Forcast</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    />
+
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body onload="defaultCity()">
-    <header>
+    <!--Creating the header of the page-->
+    <header class="bg-dark text-center text-light">
       <h1>Weather Dashboard</h1>
     </header>
 
-    <h2>Search For a City:</h2>
-    <input type="text" id="cityInput" />
-    <br />
-    <button type="submit" id="submitButton">Search</button>
+    <!--Creating container for weather display-->
 
-    <h3 id="cityName">Dallas</h3>
+    <div class="container">
+      <div class="row">
+        <div class="container col-3 search-container">
+          <h2>Search For a City:</h2>
+          <input type="text" id="cityInput" />
 
-    <div id="weather-container">
-      <div class="weather-icons">
-        <p class="weather" id="day1"></p>
-        <div class="image">
-          <img
-            src="./assets/images/dots.png"
-            alt=""
-            class="imageClass"
-            id="image1"
-          />
+          <button type="submit" id="submitButton">Search</button>
+
+          <div id="searchHistory" class="container"></div>
         </div>
-        <p class="minimumTemperature" id="day1Min">Loading...</p>
-        <p class="maximumTemperature" id="day1Max">Loading...</p>
-      </div>
-      <div class="weather-icons">
-        <p class="weather" id="day2"></p>
-        <div class="image">
-          <img
-            src="./assets/images/dots.png"
-            alt=""
-            class="imageClass"
-            id="image2"
-          />
+
+        <div id="weather-container" class="col-9">
+          <div class="weather-icons">
+            <p class="weather" id="day1"></p>
+            <div class="image">
+              <img
+                src="./assets/images/dots.png"
+                alt=""
+                class="imageClass"
+                id="image1"
+              />
+            </div>
+
+            <p class="minimumTemperature" id="day1Temp">Loading...</p>
+            <p class="maximumTemperature" id="day1Wind">Loading...</p>
+            <p class="maximumTemperature" id="day1Humidity">Loading...</p>
+          </div>
+          <div class="weather-icons">
+            <p class="weather" id="day2"></p>
+            <div class="image">
+              <img
+                src="./assets/images/dots.png"
+                alt=""
+                class="imageClass"
+                id="image2"
+              />
+            </div>
+            <p class="minimumTemperature" id="day2Temp">Loading...</p>
+            <p class="maximumTemperature" id="day2Wind">Loading...</p>
+            <p class="maximumTemperature" id="day2Humidity">Loading...</p>
+          </div>
+          <div class="weather-icons">
+            <p class="weather" id="day3"></p>
+            <div class="image">
+              <img
+                src="./assets/images/dots.png"
+                alt=""
+                class="imageClass"
+                id="image3"
+              />
+            </div>
+            <p class="minimumTemperature" id="day3Temp">Loading...</p>
+            <p class="maximumTemperature" id="day3Wind">Loading...</p>
+            <p class="maximumTemperature" id="day3Humidity">Loading...</p>
+          </div>
+          <div class="weather-icons">
+            <p class="weather" id="day4"></p>
+            <div class="image">
+              <img
+                src="./assets/images/dots.png"
+                alt=""
+                class="imageClass"
+                id="image4"
+              />
+            </div>
+            <p class="minimumTemperature" id="day4Temp">Loading...</p>
+            <p class="maximumTemperature" id="day4Wind">Loading...</p>
+            <p class="maximumTemperature" id="day4Humidity">Loading...</p>
+          </div>
+          <div class="weather-icons">
+            <p class="weather" id="day5"></p>
+            <div class="image">
+              <img
+                src="./assets/images/dots.png"
+                alt=""
+                class="imageClass"
+                id="image5"
+              />
+            </div>
+            <p class="minimumTemperature" id="day5Temp">Loading...</p>
+            <p class="maximumTemperature" id="day5Wind">Loading...</p>
+            <p class="maximumTemperature" id="day5Humidity">Loading...</p>
+          </div>
         </div>
-        <p class="minimumTemperature" id="day2Min">Loading...</p>
-        <p class="maximumTemperature" id="day2Max">Loading...</p>
-      </div>
-      <div class="weather-icons">
-        <p class="weather" id="day3"></p>
-        <div class="image">
-          <img
-            src="./assets/images/dots.png"
-            alt=""
-            class="imageClass"
-            id="image3"
-          />
-        </div>
-        <p class="minimumTemperature" id="day3Min">Loading...</p>
-        <p class="maximumTemperature" id="day3Max">Loading...</p>
-      </div>
-      <div class="weather-icons">
-        <p class="weather" id="day4"></p>
-        <div class="image">
-          <img
-            src="./assets/images/dots.png"
-            alt=""
-            class="imageClass"
-            id="image4"
-          />
-        </div>
-        <p class="minimumTemperature" id="day4Min">Loading...</p>
-        <p class="maximumTemperature" id="day4Max">Loading...</p>
-      </div>
-      <div class="weather-icons">
-        <p class="weather" id="day5"></p>
-        <div class="image">
-          <img
-            src="./assets/images/dots.png"
-            alt=""
-            class="imageClass"
-            id="image5"
-          />
-        </div>
-        <p class="minimumTemperature" id="day5Min">Loading...</p>
-        <p class="maximumTemperature" id="day5Max">Loading...</p>
       </div>
     </div>
 
     <script src="./assets/javascript/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </body>
 </html>

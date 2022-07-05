@@ -18,13 +18,13 @@ function getWeatherInfo() {
       for (i = 0; i < 5; i++) {
         document.querySelector("#day" + (i + 1) + "Min").innerHTML =
           "Min: " +
-          Number(data.list[i].main.temp_min - 288.53).toFixed(1) +
+          Number(data.list[i].main.temp_min * 1.8 - 460).toFixed(1) +
           "°";
       }
       for (i = 0; i < 5; i++) {
         document.querySelector("#day" + (i + 1) + "Max").innerHTML =
           "Max: " +
-          Number(data.list[i].main.temp_max - 288.53).toFixed(1) +
+          Number(data.list[i].main.temp_max * 1.8 - 460).toFixed(1) +
           "°";
       }
       for (i = 0; i < 5; i++) {

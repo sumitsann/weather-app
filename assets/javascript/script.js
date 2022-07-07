@@ -35,6 +35,12 @@ function getWeatherInfo() {
       console.log(data);
     })
     .catch((err) => alert("Something went wrong"));
+  // save searched city to localStorage with saveSearchHistory()
+  saveSearchHistory(cityInput);
+  // reload saved button from localStorage and put load on the page
+  getSearchHistory();
+
+  cityInput.value = "";
 }
 
 var date = new Date();
@@ -50,7 +56,7 @@ var weekdays = [
 
 function checkDay(day) {
   if (day + date.getDay() > 6) {
-    return day + date.getDay - 7;
+    return day + date.getDay - 6;
   } else {
     return day + date.getDay();
   }
@@ -60,6 +66,36 @@ for (i = 0; i < 5; i++) {
   document.querySelector("#day" + (i + 1)).innerHTML = weekdays[checkDay(i)];
 }
 
-function defaultCity() {
-  cityInput = "dallas";
+// save search history to load on next visit to website
+function saveSearchHistory(cityInput) {
+  searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
+
+  if (!searchHistory.includes(cityInput)) {
+    searchHistory.push(cityInput);
+  }
+
+  localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 }
+
+// get search history from localStorage
+function getSearchHistory() {
+  let searchHistory =
+    JSON.stringify(localStorage.getItem("searchHistory")) || [];
+
+  $("#searchHistory").empty();
+  // if there is search history in localStorage
+  if (searchHistory.length > 0) {
+    // take each one
+    for (let i = 0; i < searchHistory.length; i++) {
+      // create a button element for it
+      let historyItem = $("<button>")
+        .attr("class", "btn btn-secondary searchHistory")
+        .text(searchHistory[i]);
+      // and append it to the parent element
+      $("#searchHistory").append(historyItem);
+    }
+  }
+}
+
+// load search history from localStorage
+getSearchHistory();
